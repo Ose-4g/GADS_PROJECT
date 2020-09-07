@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".LearnersFragment">
 
+
     <ProgressBar
         android:id="@+id/progressBar"
         style="?android:attr/progressBarStyle"
@@ -19,12 +20,23 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <ImageView
+        android:id="@+id/refresh"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/refresh"
+        app:layout_constraintBottom_toBottomOf="@+id/error_message"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/progressBar"
+        app:layout_constraintVertical_bias="0.067" />
+
     <TextView
         android:id="@+id/error_message"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:gravity="center"
-        android:text="Unable to connect \n Please check your internet connection"
+        android:text="@string/error_message"
         android:textColor="@color/design_default_color_on_secondary"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/recycler_view"

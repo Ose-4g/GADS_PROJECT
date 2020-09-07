@@ -43,6 +43,13 @@ public class SkillIQListActivity extends Fragment {
         }
 
 
+        mView.findViewById(R.id.refresh).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                URL url = ApiHelper.buildUrl(ID);
+                new HoursQueryTask().execute(url);
+            }
+        });
 
 
         return mView;
@@ -57,6 +64,7 @@ public class SkillIQListActivity extends Fragment {
             ((ProgressBar) mView.findViewById(R.id.progressBar)).setVisibility(View.VISIBLE);
             ((TextView) mView.findViewById(R.id.error_message)).setVisibility(View.INVISIBLE);
             ((RecyclerView) mView.findViewById(R.id.recycler_view)).setVisibility(View.INVISIBLE);
+            mView.findViewById(R.id.refresh).setVisibility(View.INVISIBLE);
 
         }
 
@@ -66,6 +74,7 @@ public class SkillIQListActivity extends Fragment {
             {
                 ((ProgressBar) mView.findViewById(R.id.progressBar)).setVisibility(View.INVISIBLE);
                 ((TextView) mView.findViewById(R.id.error_message)).setVisibility(View.VISIBLE);
+                mView.findViewById(R.id.refresh).setVisibility(View.VISIBLE);
                 ((RecyclerView) mView.findViewById(R.id.recycler_view)).setVisibility(View.INVISIBLE);
             }
             else
@@ -75,6 +84,7 @@ public class SkillIQListActivity extends Fragment {
                 mRecyclerView.setLayoutManager(new LinearLayoutManager(mView.getContext()));
                 ((ProgressBar) mView.findViewById(R.id.progressBar)).setVisibility(View.INVISIBLE);
                 ((TextView) mView.findViewById(R.id.error_message)).setVisibility(View.INVISIBLE);
+                mView.findViewById(R.id.refresh).setVisibility(View.INVISIBLE);
                 ((RecyclerView) mView.findViewById(R.id.recycler_view)).setVisibility(View.VISIBLE);
             }
 
@@ -93,7 +103,7 @@ public class SkillIQListActivity extends Fragment {
             }
             catch (Exception e)
             {
-                Log.d("error",e.getMessage());
+                Log.d("error",e.toString());
             }
 
             return result;
