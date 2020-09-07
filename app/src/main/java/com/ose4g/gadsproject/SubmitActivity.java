@@ -68,6 +68,10 @@ public class SubmitActivity extends AppCompatActivity {
 
     private void sendDetails()
     {
+        /*
+        Send data to the form
+         */
+
         FormService formService = new Retrofit.Builder()
                                      .baseUrl("https://docs.google.com/forms/u/0/d/e/")
                                     .addConverterFactory(GsonConverterFactory.create())
@@ -81,6 +85,7 @@ public class SubmitActivity extends AppCompatActivity {
 
         sendData.enqueue(new Callback<Void>()
         {
+            //if the response is positive a successful alert appears
             @Override
             public void onResponse(Call<Void> call, Response<Void> response) {
 
@@ -102,6 +107,7 @@ public class SubmitActivity extends AppCompatActivity {
 
             }
 
+            //else a not successful alert appears
             @Override
             public void onFailure(Call<Void> call, Throwable t) {
                 View alertView = LayoutInflater.from(SubmitActivity.this).inflate(R.layout.not_successful,null);

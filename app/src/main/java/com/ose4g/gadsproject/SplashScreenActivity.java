@@ -15,10 +15,12 @@ public class SplashScreenActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
 
-
+        //This sets the screen to full screen view. It works for android version 5.0 and above.
+        //Its so that I could have a transparent status bar
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
 
 
+        //The splash screen activity stays for a few seconds and launches the next activity
         Handler handler = new Handler();
         Runnable runnable = new Runnable() {
             @Override
@@ -29,7 +31,7 @@ public class SplashScreenActivity extends AppCompatActivity {
             }
         };
 
-        handler.postDelayed(runnable,2500);
+        handler.postDelayed(runnable,2000);
 
     }
 }

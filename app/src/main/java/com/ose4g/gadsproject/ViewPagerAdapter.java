@@ -11,6 +11,9 @@ import androidx.viewpager2.adapter.FragmentStateAdapter;
 import java.util.ArrayList;
 
 public class ViewPagerAdapter extends FragmentStateAdapter {
+    /*
+    Adapter for the /viewpager2 which moves between the fragments
+     */
 
     private ArrayList<Fragment> mFragmentArrayList;
 

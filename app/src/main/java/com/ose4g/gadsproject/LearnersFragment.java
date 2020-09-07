@@ -19,6 +19,9 @@ import java.util.ArrayList;
 
 
 public class LearnersFragment extends Fragment {
+    /*
+    Fragment to be used with the View pager for top learners
+     */
     private RecyclerView mRecyclerView;
     private ArrayList<Learner> learners;
     private final int ID = 1;
@@ -42,6 +45,7 @@ public class LearnersFragment extends Fragment {
         learners = new ArrayList<>();
         mRecyclerView = mView.findViewById(R.id.recycler_view);
 
+        //on create refresh the list
         try {
             URL url = ApiHelper.buildUrl(ID);
             new HoursQueryTask().execute(url);
@@ -52,6 +56,7 @@ public class LearnersFragment extends Fragment {
             e.printStackTrace();
         }
 
+        //refresh button to refresh the list
         mView.findViewById(R.id.refresh).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -66,7 +71,8 @@ public class LearnersFragment extends Fragment {
 
     public class HoursQueryTask extends AsyncTask<URL,Void,String>
     {
-
+        //show the progress bar rolling
+        //while every other thing remains invisible
         @Override
         protected void onPreExecute() {
             ((ProgressBar) mView.findViewById(R.id.progressBar)).setVisibility(View.VISIBLE);
@@ -76,6 +82,11 @@ public class LearnersFragment extends Fragment {
 
         }
 
+        //show the recycler view
+        //hide every other thing
+        //or
+        //hide recycler view
+        //show error message and refresh button
         @Override
         protected void onPostExecute(String json) {
             if(json==null)
@@ -111,7 +122,7 @@ public class LearnersFragment extends Fragment {
             }
             catch (Exception e)
             {
-                Log.d("error",e.getMessage());
+                Log.d("error",e.toString());
             }
 
             return result;

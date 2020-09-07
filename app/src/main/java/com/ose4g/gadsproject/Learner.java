@@ -1,6 +1,9 @@
 package com.ose4g.gadsproject;
 
 public class Learner {
+    /*
+    Model class for a learner
+     */
     public String name;
     public int score;
     public int hours;

@@ -23,6 +23,8 @@ public class ApiHelper
 
     private ApiHelper(){}
 
+    //builds url and string
+    //mode tells me if it is in learner fragment or skill iq fragment
     public static URL buildUrl(int mode)
     {
 
@@ -41,6 +43,7 @@ public class ApiHelper
         return url;
     }
 
+    //reads json data from the url and returns it in string format
     public static String getJSON(URL url,int mode) throws IOException
     {
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();
@@ -66,6 +69,8 @@ public class ApiHelper
          }
     }
 
+    //gets the string data json and parses it correctly into the learner object
+    //and forms a list of the learner objects
     public static ArrayList<Learner> getLearners(String json,int mode)
     {
         String name,country,badgeURL;

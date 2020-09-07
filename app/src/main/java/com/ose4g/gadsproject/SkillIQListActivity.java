@@ -20,6 +20,10 @@ import java.util.ArrayList;
 
 public class SkillIQListActivity extends Fragment {
 
+     /*
+    Fragment to be used with the View pager for top learners
+     */
+
     private RecyclerView mRecyclerView;
     private ArrayList<Learner> learners;
     private final int ID = 2;

@@ -28,25 +28,30 @@ public class LearnersListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_learners_list);
 
+        //DOES SAME THING IT DOES IN THE SPLASH SCRREN ACTIVITY
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
 
-        mFragmentArrayList = new ArrayList<>();
+
+        mFragmentArrayList = new ArrayList<>();// List for the FragmentAdapter for the Viewpager2
         mFragmentArrayList.add(new LearnersFragment());
         mFragmentArrayList.add(new SkillIQListActivity());
-        final String[] tabNames = {"LEARNING LEADERS", "SKILL IQ LEADERS"};
+
+        final String[] tabNames = {"LEARNING LEADERS", "SKILL IQ LEADERS"};//Titles for the Tab layout in the activity
 
         mTabLayout = findViewById(R.id.leaders_tabs);
         mViewPager2 = findViewById(R.id.viewpager);
         mViewPager2.setAdapter(new ViewPagerAdapter(this.getSupportFragmentManager(),getLifecycle(),mFragmentArrayList));
 
+        //i had to use this as this was what worked for viewpager2
         TabLayoutMediator tabLayoutMediator = new TabLayoutMediator(mTabLayout, mViewPager2, true, new TabLayoutMediator.TabConfigurationStrategy() {
             @Override
             public void onConfigureTab(@NonNull TabLayout.Tab tab, int position) {
-                tab.setText(tabNames[position]);
+                tab.setText(tabNames[position]);//set the tab names for each of the tabs
             }
         });
         tabLayoutMediator.attach();
 
+        //button links to the submit activity
         ((Button) findViewById(R.id.to_submisison)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

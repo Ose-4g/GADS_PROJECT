@@ -16,6 +16,10 @@ import java.util.ArrayList;
 
 public class LearnersListAdaptor extends RecyclerView.Adapter<LearnersListAdaptor.ViewHolder> {
 
+    /*
+    Recycler view adaptor for learners list
+     */
+
     private Context mContext;
     private ArrayList<Learner> mLearners;
     private LayoutInflater mLayoutInflater;
@@ -32,6 +36,7 @@ public class LearnersListAdaptor extends RecyclerView.Adapter<LearnersListAdapto
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        //depending on the mode/id it inflates the right resource
         View view = mLayoutInflater
                 .inflate((mHoursORScore==1?R.layout.learner_list_item:R.layout.iq_list_item)
                 ,parent,false);
