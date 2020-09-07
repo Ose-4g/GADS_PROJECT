@@ -12,7 +12,8 @@ import java.util.ArrayList;
 
 public class ViewPagerAdapter extends FragmentStateAdapter {
     /*
-    Adapter for the /viewpager2 which moves between the fragments
+    Adapter for the viewpager2 which moves between the fragments
+    It switched between fragments
      */
 
     private ArrayList<Fragment> mFragmentArrayList;
